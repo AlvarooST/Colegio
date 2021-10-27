@@ -1,7 +1,7 @@
 //           Proyecto Final
 // Solá Torino, Perez Junqueira y Parisi
 
-var reglas = "¿Cómo jugar? \n\nPara realizar un ataque: \nLlama a la función ataque() e ingresa como parámetros el país atacante y el país defensor. \n\nPara enviar fichas de un país a otro: \nLlama a la función reagrupar() e ingresa como parámetros el país emisor, el país receptor y la cantidad de fichas \n\nPara agregar fichas a un país: \nLlama a la función agregarFichas() e ingresa como parámetros el país y la cantidad de fichas \n\nSi quieres volver a leer las reglas tan sólo llama a la función repetirReglas() \n\nSi quieres consultar qué paises limitan con un determinado país llama a la función consultarLimitrofes() e ingresa como parámetro el país \n\nCada vez que termines de realizar tus ataques o de agregar tus fichas llama a la función finalizarTurno() \n\n¡Buena suerte!";
+var reglas = "¿Cómo jugar? \n\nPara realizar un ataque: \nLlama a la función ataque() e ingresa como parámetros el país atacante y el país defensor. \nSi conquistas un país deberás llamar inmediatamente a la función pasarFichas() e indicar como parámetro la cantidad de fichas que deseas pasarle \n\nPara enviar fichas de un país a otro: \nLlama a la función reagrupar() e ingresa como parámetros el país emisor, el país receptor y la cantidad de fichas \n\nPara agregar fichas a un país: \nLlama a la función agregarFichas() e ingresa como parámetros el país y la cantidad de fichas \n\nSi quieres volver a leer las reglas tan sólo llama a la función repetirReglas() \n\nSi quieres consultar qué paises limitan con un determinado país llama a la función consultarLimitrofes() e ingresa como parámetro el país \n\nCada vez que termines de realizar tus ataques o de agregar tus fichas llama a la función finalizarTurno() \n\n¡Buena suerte!";
 
 var turno = 3;
 
@@ -299,3 +299,5 @@ console.log(reglas);
 console.log("Los países del jugador 1 son: " + jugador1.paises.join(", ") + "\n\nLos países del jugador 2 son: " + jugador2.paises.join(", "));
 console.log("¡Comienza la partida!");
 console.log("Es el turno del jugador 1 de agregar fichas");
+
+//hola
