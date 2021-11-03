@@ -39,15 +39,17 @@ let inglaterra = new pais("Inglaterra",["Portugal", "Francia"]);
 let francia = new pais("Francia",["Portugal", "Inglaterra", "Alemania"]);
 let alemania = new pais("Alemania",["Francia", "Rusia", "Afghanistan"]);
 let rusia = new pais("Rusia",["Alemania", "Canadá", "Afghanistan", "China"]);
-let afghanistan = new pais("Afghanistan",["Alemania", "Rusia", "China"]);
-let china = new pais("China",["Rusia", "Afghanistan"]);
+let afghanistan = new pais("Afghanistan",["Alemania", "Rusia", "China", "Irán"]);
+let china = new pais("China",["Rusia", "Afghanistan", "Irán"]);
 let marruecos = new pais("Marruecos",["Portugal", "Egipto", "Nigeria"]);
 let nigeria = new pais("Nigeria",["Marruecos", "Egipto", "Somalia", "Sudáfrica"]);
-let egipto = new pais("Egipto",["Marruecos", "Nigeria", "Somalia"]);
+let egipto = new pais("Egipto",["Marruecos", "Nigeria", "Somalia", "Arabia Saudita"]);
 let somalia = new pais("Somalia",["Egipto", "Nigeria", "Sudáfrica"]);
 let sudafrica = new pais("Sudáfrica",["Nigeria", "Somalia", "Islas Malvinas"]);
+let iran = new pais("Irán",["Arabia Saudita", "China", "Afghanistan"])
+let arabiaSaudita = new pais("Arabia Saudita", ["Egipto", "Irán"])
 
-var paisesTotales = [argentina, brasil, peru, venezuela, islasMalvinas, mexico, estadosUnidos, canada, portugal, inglaterra, francia, alemania, rusia, afghanistan, china, marruecos, nigeria, egipto, somalia, sudafrica];
+var paisesTotales = [argentina, brasil, peru, venezuela, islasMalvinas, mexico, estadosUnidos, canada, portugal, inglaterra, francia, alemania, rusia, afghanistan, china, marruecos, nigeria, egipto, somalia, sudafrica, iran, arabiaSaudita];
 
 var jugadores = [jugador1, jugador2];
 
@@ -58,7 +60,7 @@ function mezclar(array){
 mezclar(paisesTotales);
 
 function repartir() {
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 11; i++) {
   paisesTotales[i].jugador = 2
  }
 };
@@ -66,11 +68,11 @@ function repartir() {
 repartir();
 
 function asignar() {
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 11; i++) {
     jugador2.paises.push(paisesTotales[i].nombre);
   };
 
-  for (var i = 10; i < 20; i++) {
+  for (var i = 11; i < 22; i++) {
     jugador1.paises.push(paisesTotales[i].nombre);
   }
 };
@@ -289,8 +291,14 @@ function reagrupar(paisEmisor, paisReceptor, cantidadFichas) {
       if (paisEmisor.fichas > cantidadFichas) {
         paisEmisor.fichas -= cantidadFichas;
         paisReceptor.fichas += cantidadFichas;
+      } else {
+        console.log("No cuentas con esa cantidad de fichas");
       }
+    } else {
+      console.log("Esos paises no son limítrofes");
     }
+  } else {
+    console.log("Alguno de los 2 paises no es tuyo");
   }
 };
 
@@ -328,3 +336,4 @@ console.log("¡Comienza la partida!");
 console.log("Es el turno del jugador 1 de agregar fichas");
 
 //hola
+//Math.floor((Math.random() * 6) + 1)
