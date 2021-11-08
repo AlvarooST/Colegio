@@ -257,8 +257,6 @@ function ataque(paisAtacante, paisDefensor) {
             default:
               console.log("ERROR --> SWITCH 3 ATAQUE");
           };
-//retirar el país conquistado de un array y meterlo en el otro
-//jugador1.paises y jugador2.paises
         }
       } else {
         console.log("Esos paises no son limitrofes");
@@ -334,6 +332,3 @@ console.log(reglas);
 console.log(paises);
 console.log("¡Comienza la partida!");
 console.log("Es el turno del jugador 1 de agregar fichas");
-
-//hola
-//Math.floor((Math.random() * 6) + 1)
