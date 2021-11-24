@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../Proyecto Final/teg(v2).js"></script>
+    <link rel="stylesheet" href="../Proyecto Final/teg.css">
+    <title>Proyecto Final (v2)</title>
+  </head>
+  <body>
+    <h1>Plan Táctico y Estratégico de la Guerra</h1>
+
+    <div class="div-general">
+      <p>Solá Torino, Perez Junqueira y Parisi</p>
+      <input type="button" id="iniciar" value="INICIAR JUEGO" onclick="iniciar();">
+
+      <div class="div-ataque">
+        <h2>Ataque</h2>
+        <select id="dropdown-ataque1" name="ataque-paises1" onchange="dropdLimitrofes();">
+        </select>
+        <select id="dropdown-ataque2" name="ataque-paises2">
+        </select>
+        <input type="button" name="ataque" value="ATACAR" onclick="ataque();">
+      </div>
+      <div class="div-pasarfichas">
+        <h2>Pasar Fichas</h2>
+        <input type="button" id="pais-receptor-fichas" value="-nombre del país-" disabled>
+        <select id="dropdown-pasar-fichas" name="numero-fichas">
+          <option selected="true" disabled>N° Fichas</option>
+          <option id="1">1</option>
+          <option id="2">2</option>
+          <option id="3">3</option>
+        </select>
+        <input type="button" name="pasar-fichas" value="PASAR" onclick="pasarFichas();">
+      </div>
+      <div class="div-agregarfichas">
+        <h2>Agregar Fichas</h2>
+        <select id="dropdown-agregar-fichas" name="agregar">
+
+        </select>
+        <input type="number" id="numero-agregar-fichas" value="N° Fichas" min="0" max="15">
+        <input type="button" name="agregar-fichas" value="AGREGAR" onclick="agregarFichas();">
+      </div>
+      <div class="div-reagrupar">
+        <h2>Reagrupar</h2>
+        <select id="dropdown-reagrupe1" name="reagrupe-paises1" onchange="dropdLimitrofes();">
+
+        </select>
+        <select id="dropdown-reagrupe2" name="reagrupe-paises2">
+
+        </select>
+        <input type="number" id="numero-reagrupe" value="N° Fichas" min="0" max="15">
+        <input type="button" name="reagrupar" value="REAGRUPAR" onclick="reagrupar();">
+      </div>
+        <h2>Finalizar Turno</h2>
+        <input type="button" value="FINALIZAR" onclick="finalizarTurno();"></input>
+    </div>
+
+    <div class="div-mapa">
+      <table>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="celda-Canadá" class="canada"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="celda-Inglaterra" class="uk"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="celda-Rusia" class="rusia"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="celda-Francia" class="francia"></td>
+          <td id="celda-Alemania" class="alemania"></td>
+          <td></td>
+          <td id="celda-Afghanistan" class="afghanistan"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="celda-Estados Unidos" class="usa"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="celda-Portugal" class="portugal"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="celda-Marruecos" class="marruecos"></td>
+          <td></td>
+          <td id="celda-Egipto" class="egipto"></td>
+          <td id="celda-Arabia" class="arabia"></td>
+          <td id="celda-Irán" class="iran"></td>
+          <td></td>
+          <td id="celda-China" class="china"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="celda-México" class="mexico"></td>
+          <td></td>
+          <td id="celda-Venezuela" class="venezuela"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="celda-Nigeria" class="nigeria"></td>
+          <td></td>
+          <td id="celda-Somalia" class="somalia"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="celda-Perú" class="peru"></td>
+          <td></td>
+          <td id="celda-Brasil" class="brasil"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="celda-Sudáfrica" class="sudafrica"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="celda-Argentina" class="argentina"></td>
+          <td></td>
+          <td></td>
+          <td id="celda-Islas Malvinas" class="malvinas"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
