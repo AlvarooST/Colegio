@@ -1,0 +1,52 @@
+.div-ataque {
+  background-color: ;
+}
+
+.div-pasarfichas {
+  background-color: ;
+}
+
+.div-agregarfichas {
+
+}
+
+.div-reagrupar {
+
+}
+
+.div-mapa {
+  float: right;
+}
+
+.div-general {
+  float: left;
+  margin-left: 10px;
+}
+
+td {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+table {
+  border-spacing: 9px;
+  width: 700px;
+  height: 418.6px;
+  background-image: url(mapa.jpg);
+  background-position: center;
+  background-size: cover;
+  }
+
+.canada, .usa, .mexico, .venezuela, .peru, .brasil, .argentina, .uk, .portugal, .francia, .alemania, .rusia, .afghanistan, .china, .iran, .arabia, .egipto, .marruecos, .nigeria, .somalia, .sudafrica, .malvinas {
+  font-weight: bold;
+  text-align: center;
+}
+
+.azul {
+  background-color: blue;
+}
+
+.rojo {
+  background-color: red;
+}
